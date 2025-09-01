@@ -1,0 +1,33 @@
+{
+  "name": "nextjs-desktop-app",
+  "productName": "Nextjs Desktop App",
+  "main": "electron.js",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "next": "next dev --turbopack",
+    "dev": "cross-env NODE_ENV=development concurrently -k \"next dev --turbopack\" \"wait-on http://localhost:3000 && electronmon .\"",
+    "build": "node scripts/build.js",
+    "start": "serve out",
+    "electron": "node ./node_modules/electron/cli.js .",
+    "dist": "node scripts/build.js && electron-builder"
+  },
+  "dependencies": {
+    "loudness": "^0.4.2",
+    "next": "15.5.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "serve": "^14.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.0.0",
+    "electron": "^37.4.0",
+    "electron-builder": "^26.0.12",
+    "electronmon": "^2.0.3",
+    "tailwindcss": "^4",
+    "wait-on": "^8.0.4"
+  }
+}
